@@ -28,7 +28,6 @@ class SplashScreenState extends State<SplashScreen> {
       if(pref.retrieveToken()!=null) {
         await context.read<HomeViewModel>().getDashboard();
         await context.read<HomeViewModel>().getAttendance();
-        await context.read<HomeViewModel>().getUser();
         widget.navigator.pushNamedAndRemoveUntil(RoutePath.home);
       }else{
         widget.navigator.pushNamedAndRemoveUntil(RoutePath.login);

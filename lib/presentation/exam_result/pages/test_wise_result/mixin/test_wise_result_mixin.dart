@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ummah/presentation/base/base_widget.dart';
-import 'package:ummah/presentation/exam_result/pages/subject_wise_result/subject_wise_result_view_model.dart';
+import 'package:ummah/presentation/exam_result/pages/test_wise_result/test_wise_result_view_model.dart';
 
 mixin TestWiseResultMixin<T extends BaseStateFullWidget> on State<T> {
 
@@ -13,14 +13,14 @@ mixin TestWiseResultMixin<T extends BaseStateFullWidget> on State<T> {
 
  void onPageChange(index) {
   setState(() {
-  context.read<SubjectWiseResultViewModel>().currentIndex = index;
+  context.read<TestWiseResultViewModel>().currentIndex = index;
   });
   scrollController.animateTo(widget.dimens.k100 * index,
   duration: kTabScrollDuration, curve: Curves.ease);
   }
 
   void onTabTap(index){
-    context.read<SubjectWiseResultViewModel>().currentIndex = index;
+    context.read<TestWiseResultViewModel>().currentIndex = index;
     controller.animateToPage(index,
         duration: kTabScrollDuration, curve: Curves.ease);
   }

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 class Utils {
@@ -12,7 +11,13 @@ class Utils {
 
   double cast(int? value) => value?.toDouble() ?? 0.0;
 
-  String compactText(dynamic value) =>  value == null ? '-' : value.toString();
+  String compactProfileUrl(dynamic value) => value == null ? 'https://via.placeholder.com/250x250' : value.toString();
 
-  T compactEnumText<T>(int? value, T) =>  value == null ? '-' : T[value];
+  String compactText(dynamic value) => value == null ? '-' : value.toString();
+
+  T compactEnumText<T>(int? value, T) => value == null ? '-' : T[value];
+
+  String digits(int value, int length) {
+    return '$value'.padLeft(length, "0");
+  }
 }

@@ -2,7 +2,7 @@ class UpdateProfileEntity {
   String? name;
   String? cnic;
   int? gender;
-  String? martialStatus;
+  int? martialStatus;
   String? dateOfBirth;
   String? religion;
   String? bloodGroup;
@@ -46,19 +46,19 @@ class UpdateProfileEntity {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = this.name;
-    data['cnic'] = this.cnic;
-    data['gender'] = this.gender;
-    data['martial_status'] = this.martialStatus;
-    data['date_of_birth'] = this.dateOfBirth;
-    data['religion'] = this.religion;
-    data['blood_group'] = this.bloodGroup;
-    data['nationality'] = this.nationality;
-    data['city'] = this.city;
-    data['address'] = this.address;
-    data['father_name'] = this.fatherName;
-    data['father_cnic'] = this.fatherCnic;
-    data['father_occupation'] = this.fatherOccupation;
+    data['name'] = name;
+    data['cnic'] = cnic;
+    data['gender'] = gender;
+    data['martial_status'] = martialStatus;
+    data['date_of_birth'] = dateOfBirth;
+    data['religion'] = religion;
+    data['blood_group'] = bloodGroup;
+    data['nationality'] = nationality;
+    data['city'] = city;
+    data['address'] = address;
+    data['father_name'] = fatherName;
+    data['father_cnic'] = fatherCnic;
+    data['father_occupation'] = fatherOccupation;
     return data;
   }
 }

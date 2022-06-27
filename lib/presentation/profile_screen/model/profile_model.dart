@@ -5,26 +5,15 @@ class ProfileModel {
   String name;
   String value;
   TextEditingController? controller;
+  bool readOnly;
+  GestureTapCallback? onTap;
 
 
-  ProfileModel({required this.name, this.value = Constants.notAvailable, this.controller});
 
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'value': value,
-      'controller': controller,
-    };
-  }
+  ProfileModel({required this.name, this.value = Constants.notAvailable, this.controller, this.readOnly = false, this.onTap});
+
 
   TextEditingController? isValueAvailAble() => value == Constants.notAvailable ? null : TextEditingController(text: value);
   String? isLabelShow() => value == Constants.notAvailable ? value : null;
 
-  factory ProfileModel.fromMap(Map<String, dynamic> map) {
-    return ProfileModel(
-      name: map['name'] as String,
-      value: map['value'] as String,
-      controller: map['controller'] as TextEditingController,
-    );
-  }
 }

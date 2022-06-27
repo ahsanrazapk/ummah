@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
+import 'package:ummah/application/core/extensions/extensions.dart';
 import 'package:ummah/application/main_config/routes/route_path.dart';
 import 'package:ummah/constant/Images/svgs.dart';
 import 'package:ummah/constant/constants.dart';
 import 'package:ummah/constant/style/Style.dart';
-import 'package:ummah/application/core/extensions/extensions.dart';
 import 'package:ummah/presentation/base/base_widget.dart';
 import 'package:ummah/presentation/home/enums/page_index.dart';
-import 'package:ummah/presentation/home/home_view_model.dart';
+import 'package:ummah/presentation/home/model/user_header_model.dart';
 import 'package:ummah/presentation/widgets/app_bar.dart';
 import 'package:ummah/presentation/widgets/section_horizontal_widget.dart';
 import 'package:ummah/presentation/widgets/section_title.dart';
@@ -25,17 +23,17 @@ mixin HomeMixin<T extends BaseStateFullWidget> on State<T> {
 
 
 
-  PreferredSizeWidget?  appBar() => SectionAppBar(
+  PreferredSizeWidget?  appBar(UserHeaderModel userHeaderModel) => SectionAppBar(
         title: SectionHorizontalWidget(
 
           firstWidget: CircleAvatar(
               backgroundColor: Style.accent1,
               radius: widget.dimens.k25,
-              backgroundImage: NetworkImage(context.read<HomeViewModel>().profileUrl),
+              backgroundImage: NetworkImage(userHeaderModel.name),
             ),
           secondWidget: SectionTitle(
               title: 'Welcome back',
-              subTitle: context.read<HomeViewModel>().userName,
+              subTitle: userHeaderModel.name,
               titleStyle: context.textTheme.bodySmall?.copyWith(color: Colors.white),
               subtitleStyle: context.textTheme.headline5?.copyWith(color: Colors.white),
             ),
@@ -49,9 +47,7 @@ mixin HomeMixin<T extends BaseStateFullWidget> on State<T> {
               color: Style.white,
             ),
             onPressed: () async {
-              await context.read<HomeViewModel>().getDashboard();
-              await context.read<HomeViewModel>().getAttendance();
-             // widget.navigator.pushNamed(RoutePath.notify);
+              widget.navigator.pushNamed(RoutePath.notify);
             },
           )
         ],

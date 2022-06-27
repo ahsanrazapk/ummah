@@ -12,12 +12,16 @@ import 'package:ummah/data/remote_data_sources/dashboard_api/dashboard_api.dart'
 import 'package:ummah/data/remote_data_sources/dashboard_api/i_dashboard_api.dart';
 import 'package:ummah/data/remote_data_sources/login_api/i_login_api.dart';
 import 'package:ummah/data/remote_data_sources/login_api/login_api.dart';
+import 'package:ummah/data/remote_data_sources/update_profile_api/i_update_profile_api.dart';
+import 'package:ummah/data/remote_data_sources/update_profile_api/update_profile_api.dart';
 import 'package:ummah/data/repo_impl/attendance_repo.dart';
 import 'package:ummah/data/repo_impl/dashboard_repo.dart';
-import 'package:ummah/data/repo_impl/register_repo.dart';
+import 'package:ummah/data/repo_impl/login_repo.dart';
+import 'package:ummah/data/repo_impl/update_profile_repo.dart';
 import 'package:ummah/domain/repo_interfaces/attendance_interface.dart';
 import 'package:ummah/domain/repo_interfaces/dashboard_interface.dart';
 import 'package:ummah/domain/repo_interfaces/login_interface.dart';
+import 'package:ummah/domain/repo_interfaces/update_profile_interface.dart';
 import 'package:ummah/presentation/utils/utils.dart';
 import 'package:ummah/services/navService/INavigationService.dart';
 import 'package:ummah/services/navService/navService.dart';
@@ -42,4 +46,7 @@ Future<void> setupLocator() async {
 
   inject.registerLazySingleton<IAttendanceApi>(() => AttendanceApi(inject()));
   inject.registerLazySingleton<IAttendance>(() => AttendanceRepo(api: inject()));
+
+  inject.registerLazySingleton<IUpdateProfileApi>(() => UpdateProfileApi(inject()));
+  inject.registerLazySingleton<IUpdateProfile>(() => UpdateProfileRepo(api: inject()));
 }

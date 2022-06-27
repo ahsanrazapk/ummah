@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ummah/application/core/routes/routes.dart';
-import 'package:ummah/constant/style/Style.dart';
 import 'package:ummah/application/main_config/routes/route_path.dart';
+import 'package:ummah/constant/style/Style.dart';
 import 'package:ummah/data/models/attendance_response.dart';
-import 'package:ummah/data/models/login_response.dart';
 import 'package:ummah/presentation/about_screen/about_screen.dart';
 import 'package:ummah/presentation/attendance/attendance_screen.dart';
 import 'package:ummah/presentation/exam_result/exam_result_screen.dart';
@@ -55,9 +54,9 @@ class RouteGenerator {
               child: WeeklyTimetableScreen(),
             ));
       case RoutePath.profile:
-        return PageRouter.fadeThrough(() => ProfileScreen(loginResponse: args as LoginData,));
+        return PageRouter.fadeThrough(() => ProfileScreen());
       case RoutePath.editProfile:
-        return PageRouter.clipperRoute(() => EditProfileScreen(loginData: args as LoginData,));
+        return PageRouter.clipperRoute(() => EditProfileScreen());
       case RoutePath.fee:
         return PageRouter.fadeThrough(() => FeeScreen());
       case RoutePath.gallery:

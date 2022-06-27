@@ -1,1 +1,2 @@
-enum GenderEnum { male, female }
+// ignore: constant_identifier_names
+enum GenderEnum { Male, Female, Other }

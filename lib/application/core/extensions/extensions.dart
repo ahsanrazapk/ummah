@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ummah/application/core/routes/routes.dart';
 
 extension StringExtension on String {
   int toInt() => int.parse(this);
+
   double toFloat() => double.parse(this);
+
   String defaultOnEmpty([String defaultValue = ""]) => isEmpty ? defaultValue : this;
 }
-
-
-
 
 extension ContextExtension on BuildContext {
   double getHeight([double factor = 1]) {
@@ -56,5 +54,7 @@ extension DateHelpers on DateTime {
   DateTime lastDateOfTheWeek() {
     return add(Duration(days: DateTime.daysPerWeek - weekday));
   }
-}
 
+  DateTime lastDayOfMonth() =>
+      ((month < 12) ? DateTime(year, month + 1, 1) : DateTime(year + 1, 1, 1)).subtract(const Duration(days: 1));
+}

@@ -21,6 +21,7 @@ class Px {
   final k18 = 18.0;
   final k20 = 20.0;
   final k25 = 25.0;
+  final k36 = 36.0;
   final k40 = 40.0;
   final k47 = 47.0;
   final k50 = 50.0;
@@ -36,4 +37,36 @@ class Px {
 
 class Constants {
   static const notAvailable = 'N/A';
+  static String? months(int value) {
+    switch (value) {
+      case 1:
+        return "JANUARY";
+      case 2:
+        return "FEBRUARY";
+      case 3:
+        return "MARCH";
+      case 4:
+        return "APRIL";
+      case 5:
+        return "MAY";
+      case 6:
+        return "JUNE";
+      case 7:
+        return "JULY";
+      case 8:
+        return "AUGUST";
+      case 9:
+        return "SEPTEMBER";
+      case 10:
+        return "OCTOBER";
+      case 11:
+        return "NOVEMBER";
+      case 12:
+        return "DECEMBER";
+      default:
+        return null;
+    }
+  }
+
+
 }

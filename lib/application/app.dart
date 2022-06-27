@@ -6,6 +6,7 @@ import 'package:ummah/application/main_config/routes/route_path.dart';
 import 'package:ummah/presentation/base/base_mixin.dart';
 import 'package:ummah/presentation/home/home_view_model.dart';
 import 'package:ummah/presentation/login/login_view_model.dart';
+import 'package:ummah/presentation/profile_screen/profile_view_model.dart';
 import 'package:ummah/presentation/splash/splash_view_model.dart';
 import 'package:ummah/presentation/utils/scroll_behavior.dart';
 
@@ -31,6 +32,7 @@ class UmmahAppState extends State<UmmahApp> with BaseMixin {
         ChangeNotifierProvider(create: (_) => SplashViewModel()),
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider(create: (_) => ProfileViewModel()),
       ],
       child: MaterialApp(
         title: 'UMMAH',

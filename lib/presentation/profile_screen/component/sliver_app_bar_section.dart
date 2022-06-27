@@ -32,11 +32,11 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate with BaseMixin {
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                        const CircleAvatar(
+                         CircleAvatar(
                           radius: 80,
                           backgroundColor: Colors.white,
                           child: CircleAvatar(
-                              radius: 70, backgroundImage: NetworkImage("https://via.placeholder.com/200x200")),
+                              radius: 70, backgroundImage: NetworkImage(utils.compactProfileUrl(loginData.profilePhoto))),
                         ),
                         SectionBox(
                           color: Style.primary,
@@ -56,35 +56,22 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate with BaseMixin {
                     child: Opacity(
                       opacity: (1 - opacity),
                       child: Text(
-                        'Muhammad Ahsan Raza',
+                        utils.compactText(loginData.name),
                         style: context.textTheme.headline6
                             ?.copyWith(color: Style.primary, fontWeight: FontWeight.normal, fontSize: 22),
                       ),
                     ),
                   ),
                   Expanded(
-                    flex: 1,
                     child: Text.rich(TextSpan(
                         text: 'REG No. ',
-                        style: context.textTheme.titleMedium
+                        style: context.textTheme.titleSmall
                             ?.copyWith(color: Style.textColor, fontWeight: FontWeight.w500),
                         children: [
                           TextSpan(
                               text: utils.compactText(loginData.regNo),
-                              style: context.textTheme.titleMedium
+                              style: context.textTheme.titleSmall
                                   ?.copyWith(color: Style.textColor, fontWeight: FontWeight.normal)),
-                          const TextSpan(
-                              text: '\n'),
-                          TextSpan(
-                              text: 'ROLL No. ',
-                              style: context.textTheme.titleMedium
-                                  ?.copyWith(color: Style.textColor, fontWeight: FontWeight.w500),
-                              children: [
-                                TextSpan(
-                                    text: utils.compactText(loginData.rollNo),
-                                    style: context.textTheme.titleMedium
-                                        ?.copyWith(color: Style.textColor, fontWeight: FontWeight.normal))
-                              ])
                         ])),
                   ),
                 ],
@@ -139,7 +126,7 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate with BaseMixin {
             opacity: opacity,
             child: Center(
               child: Text(
-                'Muhammad Ahsan Raza',
+                utils.compactText(loginData.name),
                 style: context.textTheme.headline6
                     ?.copyWith(color: Style.white, fontWeight: FontWeight.normal, fontSize: 22),
               ),

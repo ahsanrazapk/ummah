@@ -14,9 +14,10 @@ class SectionTextFieldDecor extends BaseStateLessWidget {
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
+  final GestureTapCallback? onTap;
 
   SectionTextFieldDecor(
-      {this.hintText, this.obscureText = false, this.controller, this.readOnly = false ,this.onChanged, this.validator,Key? key})
+      {this.hintText, this.obscureText = false, this.controller, this.readOnly = false ,this.onChanged, this.validator,this.onTap,Key? key})
       : super(key: key);
 
   @override
@@ -28,6 +29,7 @@ class SectionTextFieldDecor extends BaseStateLessWidget {
       onChanged: onChanged,
       validator: validator,
       readOnly: readOnly,
+      onTap: onTap,
       style: context.textTheme.labelLarge?.copyWith(color: Style.textColor,fontWeight: FontWeight.normal),
       decoration: InputDecoration(
           hintText: hintText,

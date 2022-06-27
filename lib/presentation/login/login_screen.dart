@@ -134,7 +134,6 @@ class LoginScreenState extends State<LoginScreen> with LoginMixin implements Res
     d(result.message!);
    await context.read<HomeViewModel>().getDashboard();
    await context.read<HomeViewModel>().getAttendance();
-    await context.read<HomeViewModel>().getUser();
     context.read<LoginViewModel>().updateState(LoginState.succeed);
     widget.navigator.pushNamedAndRemoveUntil(RoutePath.home);
   }
