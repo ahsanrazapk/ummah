@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ummah/presentation/base/base_widget.dart';
 
 class SectionTitle extends BaseStateLessWidget {
@@ -22,6 +21,7 @@ class SectionTitle extends BaseStateLessWidget {
       overflow: TextOverflow.ellipsis,
     ),
       AutoSizeText(subTitle, style: subtitleStyle,minFontSize: 10,
+        maxFontSize: 16,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,),
     ]):Column(mainAxisAlignment: main, crossAxisAlignment: cross, children: [

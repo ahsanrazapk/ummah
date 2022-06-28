@@ -112,7 +112,7 @@ class LoginScreenState extends State<LoginScreen> with LoginMixin implements Res
                   .login(LoginEntity(mobile: idController.text, password: passController.text), this);
             }
           },
-          child: const Text('Login'),
+          child: const Text('LOGIN'),
         );
       case LoginState.loading:
         return const Center(

@@ -3,7 +3,9 @@ import 'package:ummah/constant/Images/svgs.dart';
 import 'package:ummah/constant/style/Style.dart';
 import 'package:ummah/application/core/extensions/extensions.dart';
 import 'package:ummah/application/main_config/routes/route_path.dart';
+import 'package:ummah/di/di.dart';
 import 'package:ummah/presentation/base/base_widget.dart';
+import 'package:ummah/presentation/exam_result/exam_result_view_model.dart';
 import 'package:ummah/presentation/exam_result/mixin/exam_result__base_mixin.dart';
 import 'package:ummah/presentation/widgets/main_body.dart';
 import 'package:ummah/presentation/widgets/section_box.dart';
@@ -16,6 +18,16 @@ class ExamResultScreen extends BaseStateFullWidget {
 }
 
 class ExamResultScreenState extends State<ExamResultScreen> with ExamResultBaseMixin {
+
+  final ExamResultViewModel _viewModel = inject<ExamResultViewModel>();
+
+  @override
+  void initState() {
+  _viewModel.getSubjectWiseResult();
+  _viewModel.getTestWiseResult();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

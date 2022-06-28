@@ -29,11 +29,12 @@ mixin HomeMixin<T extends BaseStateFullWidget> on State<T> {
           firstWidget: CircleAvatar(
               backgroundColor: Style.accent1,
               radius: widget.dimens.k25,
-              backgroundImage: NetworkImage(userHeaderModel.name),
+              backgroundImage: NetworkImage(userHeaderModel.profile),
             ),
           secondWidget: SectionTitle(
               title: 'Welcome back',
               subTitle: userHeaderModel.name,
+              autoResize: userHeaderModel.name.length> widget.dimens.k25,
               titleStyle: context.textTheme.bodySmall?.copyWith(color: Colors.white),
               subtitleStyle: context.textTheme.headline5?.copyWith(color: Colors.white),
             ),

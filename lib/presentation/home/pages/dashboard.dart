@@ -47,7 +47,7 @@ class DashboardState extends State<Dashboard> with HomeMixin {
     d('home didChangeDependencies at ${DateTime.now().toIso8601String()}');
     context.read<HomeViewModel>().getDashboard();
     context.read<HomeViewModel>().getAttendance();
-    context.read<ProfileViewModel>().updateHeader();
+    context.read<ProfileViewModel>().updateHeader(local: true, notifyListeners: false);
   }
 
   @override

@@ -4,6 +4,8 @@ import 'package:ummah/constant/style/Style.dart';
 import 'package:ummah/main.dart';
 import 'package:ummah/application/main_config/routes/route_path.dart';
 import 'package:ummah/presentation/base/base_mixin.dart';
+import 'package:ummah/presentation/exam_result/pages/subject_wise_result/subject_wise_result_view_model.dart';
+import 'package:ummah/presentation/exam_result/pages/test_wise_result/test_wise_result_view_model.dart';
 import 'package:ummah/presentation/home/home_view_model.dart';
 import 'package:ummah/presentation/login/login_view_model.dart';
 import 'package:ummah/presentation/profile_screen/profile_view_model.dart';
@@ -33,6 +35,8 @@ class UmmahAppState extends State<UmmahApp> with BaseMixin {
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => HomeViewModel()),
         ChangeNotifierProvider(create: (_) => ProfileViewModel()),
+         ChangeNotifierProvider(create: (_) => TestWiseResultViewModel()),
+         ChangeNotifierProvider(create: (_) => SubjectWiseResultViewModel()),
       ],
       child: MaterialApp(
         title: 'UMMAH',

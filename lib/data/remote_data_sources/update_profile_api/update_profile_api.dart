@@ -16,7 +16,7 @@ class UpdateProfileApi implements IUpdateProfileApi {
   Future<LoginResponse> updateProfile(Map<String, dynamic> map) async {
     try {
 
-      final responseData = await dio.post("/api/update");
+      final responseData = await dio.post("/api/update",data: map);
 
       return LoginResponse.fromJson(responseData.data);
 

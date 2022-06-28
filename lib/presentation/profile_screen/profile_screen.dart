@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ummah/application/core/extensions/extensions.dart';
 import 'package:ummah/application/core/failure/failure.dart';
+import 'package:ummah/application/main_config/routes/route_path.dart';
 import 'package:ummah/application/network/error_handler/error_handler.dart';
 import 'package:ummah/common/logger/log.dart';
 import 'package:ummah/constant/style/Style.dart';
+import 'package:ummah/data/local_data_source/preference/i_pref_helper.dart';
 import 'package:ummah/data/models/login_response.dart';
+import 'package:ummah/di/di.dart';
 import 'package:ummah/presentation/base/base_widget.dart';
 import 'package:ummah/presentation/profile_screen/component/sliver_app_bar_section.dart';
 import 'package:ummah/presentation/profile_screen/enums/gender_enum.dart';
@@ -68,7 +71,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                           SectionBox(
                               color: Style.card1.withOpacity(0.4),
                               width: context.width,
-                              height: context.height + 200,
+                              height: context.height + context.getHeight(0.35),
                               border: true,
                               borderColor: Style.card1.withOpacity(0.7),
                               margin: EdgeInsets.symmetric(horizontal: widget.dimens.k10),
@@ -150,7 +153,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                                 ))
                                     .toList(),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding:  EdgeInsets.all(widget.dimens.k15),
                                   child: Text(
                                     'Guardian Information',
                                     style: context.textTheme.headline6
@@ -202,7 +205,14 @@ class ProfileScreenState extends State<ProfileScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 12.0),
                                   child: BigBtn(
-                                    onTap: () {},
+                                    onTap: () async {
+                                      bool? logout = await widget.navigator.showNAVDialog('Are you sure?', 'You want to go back');
+
+                                      if(logout!=null && logout){
+                                        inject<IPrefHelper>().removeToken();
+                                        widget.navigator.pushNamedAndRemoveUntil(RoutePath.login);
+                                      }
+                                    },
                                     buttonStyle: Style.of(context)
                                         .defaultButtonStyle()
                                         .copyWith(backgroundColor: MaterialStateProperty.all<Color>(Style.lightRed)),
